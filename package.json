@@ -19,9 +19,11 @@
     "web-vitals": "^0.2.4"
   },
   "scripts": {
-    "start": "craco start",
+    "start": "craco start --config craco.config.js",
     "build": "craco build",
-    "test": "craco test"
+    "test": "craco test",
+    "deploy": "ssh root@chome 'cd ~/project/vote-admin;git pull; yarn build'"
+    
   },
   "eslintConfig": {
     "extends": [

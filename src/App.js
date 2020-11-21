@@ -13,21 +13,25 @@ import './App.less';
 import GobalStore from './store/gobalStore'
 import Login from './page/login';
 import NoMatch from './layout/404'
+import Management from './page/management/index'
+import VoteManage from './page/voteManage/index'
+
 
 function App() {
+  
   return (
     <GobalStore.Provider>
     <Router>
         <Switch>
           <Route path='/' exact>
-          <UserLayout>
-            <Route path='/' exact component={Login} />
-          </UserLayout>
+            <AdminLayout>
+              <Route path='/' component={Index} />
+            </AdminLayout>
           </Route>
           <Route path='/user/:path?' exact>
             <UserLayout>
               <Switch>
-                <Route path='/user/login' exact component={Login} />
+                <Route path='/user/login' component={Login} />
                 <Route path='/user/logout' component={Login} />
               </Switch>
             </UserLayout>
@@ -35,8 +39,9 @@ function App() {
           <Route path='/admin/:path?' exact>
             <AdminLayout>
               <Switch>
-                <Route path='/admin' exact component={Index} />
                 <Route path='/admin/setting' component={Index} />
+                <Route path='/admin/management' component={Management} />
+                <Route path='/admin/voteManage' />
               </Switch>
             </AdminLayout>
           </Route>
