@@ -1,16 +1,25 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import GobalStore from '../store/gobalStore'
 import "./AdminLayout.less"
 import image_logo from '../assets/images/logo2.png'
 import image_message from '../assets/images/message.png'
 import {Badge} from 'antd'
-
+import { useHistory } from "react-router-dom";
+import { createContainer, useContainer } from 'unstated-next'
 /**
  * @description 全局头部组件
  * @type React Component
  * @returns React.Dom
  */
 function Header() {
+
+  const { phoneNavSpread, setPhoneNavSpread } = useContainer(AdminLayoutStroe) 
+
+  // 点击手机端Nav展开控制器
+  const onClickPhoneNavCtl = () => {
+      setPhoneNavSpread(!phoneNavSpread)
+  }
+
   return <div className='layout-header'>
     <div className='layout-header-content flex-row-between'>
       <img alt='' className='layout-header-logo' src={image_logo}></img>
@@ -19,14 +28,26 @@ function Header() {
           <img alt='' className='layout-header-message' src={image_message}></img>
         </Badge>
         <img alt='' className='avatar m-r-5'/>
-        <div className='flex-column-all-center'>
+        <div className='flex-column-all-center user-info_pc'>
           <div className='layout-header-username'>马老师</div>
           <div className='layout-header-userVersion flex'>专业版</div>
         </div>
+        <span onClick={onClickPhoneNavCtl} className='nemu-button_phone iconcaidan1 iconfont'></span>
       </div>
     </div>
   </div>
 }
+
+const paths = [
+  {
+    path:'/admin/management',
+    name:'管理中心',
+  },
+  {
+    path:'/admin/voteManage/list',
+    name:'投票管理',
+  }
+]
 
 /**
  * @description nav导航组件
@@ -34,10 +55,18 @@ function Header() {
  * @returns React.Dom
  */
 function Nav() {
+
+  let history = useHistory();
+
+  
+
   return <div className='layout-menu'>
     <div className='layout-menu-content flex-between'>
-      <a className="layout-menu-item_selected">管理中心</a>
-      <a className="layout-menu-item">投票管理</a>
+      {
+        paths.map(item=>{
+          return <a key={item.path} href={item.path} className={ history.location.pathname.includes(item.path) ? "layout-menu-item_selected" : "layout-menu-item"}>{item.name}</a>
+        })
+      }
       <a className="layout-menu-item">专题展示</a>
       <a className="layout-menu-item">账户升级</a>
       <a className="layout-menu-item">财务升级</a>
@@ -47,7 +76,51 @@ function Nav() {
   </div>
 }
 
+/**
+ * @description nav导航组件手机版本
+ * @type React Component
+ * @returns React.Dom
+ */
+function PhoneNav() {
+  let history = useHistory();
 
+  const { phoneNavSpread } = useContainer(AdminLayoutStroe) 
+  const navAnimationClass =  (phoneNavSpread !== undefined) ? phoneNavSpread ? 'layout-phoneNav_spread' : 'layout-phoneNav_packup' : ''
+  console.log(phoneNavSpread)
+  return <div className={`layout-phoneNav ${navAnimationClass}`}>
+      <div className='layout-phoneNav-content'>
+        {
+          paths.map(item=>{
+            return <a className={ history.location.pathname.includes(item.path) ? "layout-phoneNav-item_selected" : "layout-phoneNav-item"} key={item.path} href={item.path}>{item.name}</a>
+          })
+        }
+        <a className='layout-phoneNav-item'>专题展示</a>
+        <a className='layout-phoneNav-item'>账户升级</a>
+        <a className='layout-phoneNav-item'>财务升级</a>
+        <a className='layout-phoneNav-item'>账户信息</a>
+        <a className='layout-phoneNav-item'>开放API</a>
+      </div>
+  </div>
+}
+
+/**
+ * @description Layout底部
+ * @type React Component
+ * @returns React.Dom
+ */
+function LayoutFooter() {
+  return <div className='layout-footer flex-center'>
+    <div className='layout-footer-content'>
+    <div>
+      <a>官网首页</a>   
+      <a>用户协议</a>
+      <a>帮助中心</a>
+      <a>案例参考</a>
+    </div>
+    <div className='footer-bank'>© CopyRight 2013-2020,All Rights Reserved.</div>
+    </div>
+  </div>
+}
 
 function AdminLayout(props) {
   let gobalStore = GobalStore.useContainer()
@@ -57,25 +130,31 @@ function AdminLayout(props) {
     <div className='layout'>
       <Header></Header>
       <Nav></Nav>
-      <div>{gobalStore.token}</div>
+      <PhoneNav></PhoneNav>
+    <div>{gobalStore.token}</div>
       <div className='flex-column-center layout-content-wrap'>
         <div className='layout-content'>
           {props.children}
         </div>
       </div>
-      <div className='layout-footer flex-center'>
-        <div className='layout-footer-content'>
-        <div>
-          <a>官网首页</a>   
-          <a>用户协议</a>
-          <a>帮助中心</a>
-          <a>案例参考</a>
-        </div>
-        <div className='footer-bank'>© CopyRight 2013-2020,All Rights Reserved.</div>
-        </div>
-      </div>
+      <LayoutFooter></LayoutFooter>
     </div>
   );
 }
 
-export default AdminLayout;
+
+
+// VoteManage Store 数据商店
+function useAdminLayoutStroe() {
+  const [phoneNavSpread, setPhoneNavSpread] = useState(); // 1 张开  2  收起
+  return { phoneNavSpread, setPhoneNavSpread }
+}
+let AdminLayoutStroe = createContainer(useAdminLayoutStroe)
+export default (props)=>{
+  return <AdminLayoutStroe.Provider>
+    <AdminLayout>
+        {props.children}
+    </AdminLayout>
+  </AdminLayoutStroe.Provider>
+}
+

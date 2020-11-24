@@ -1,32 +1,48 @@
-import { Table } from 'antd'
+import { Table, Col, Row } from 'antd'
 import React from 'react'
+import { colLayout_1 } from '../../config/colLayout'
 import './index.less'
-
 /**
  * @type React Component
  * @description 状态仪表盘（快速跳转）
  */
 function Dashboard() {
-    return <div className='flex-between dashboard'>
-        <div className='dashboard-card bg-primary'>
+
+    const colLayout = {
+        lg: {span: 6},
+        md: {span: 12},
+        sm: {span: 24},
+        xs: {span: 24}
+
+    }
+
+    return <Row className='flex-between dashboard'>
+        <Col {...colLayout} className='m-b-20'>
+        <div  className='dashboard-card bg-primary'>
             <div className='dashboard-card-activityCount'>5</div>
             <div className='dashboard-card-activityDec'>还未开始投票活动</div>
         </div>
-        <div className='dashboard-card'>
+        </Col>
+        <Col {...colLayout} className='m-b-20'>
+        <div  className='dashboard-card'>
             <div className='dashboard-card-activityCount'>1</div>
             <div className='dashboard-card-activityDec'>正在进行中的活动</div>
         </div>
+        </Col>
+        <Col {...colLayout} className='m-b-20'>
         <div className='dashboard-card'>
             <div className='dashboard-card-activityCount'>258</div>
             <div className='dashboard-card-activityDec'>投票选手合计数量</div>
         </div>
-        <div className='dashboard-card'>
+        </Col>
+        <Col {...colLayout} className='m-b-20'>
+        <div  className='dashboard-card'>
             <div className='dashboard-card-activityCount'>5</div>
             <div className='dashboard-card-activityDec'>已结束的投票活动</div>
         </div>
-    </div>
+        </Col>
+    </Row>
 }
-
 /**
  * @type React Component
  * @description 最近活动
@@ -78,48 +94,57 @@ function LatestActivity() {
             </div>
         </div>
         <div className='latestActivity-content'>
-            <Table dataSource={[]} columns={columns}/>
+            <Table scroll={{ x: 1100 }} dataSource={[]} columns={columns}/>
         </div>
     </div>
 }
-
 /**
  * @type React Component
  * @description 我的资料
  */
 function MyInformation() {
+    const colLayout = {
+        lg: {span: 12},
+        md: {span: 24},
+        sm: {span: 24},
+        xs: {span: 24}
+    }
     return <div>
     <div className='text_page-title'>我的资料</div>
-        <div className='setting-dashboard flex-between'>
-            <div className='setting-dashboard-card flex-between'>
-                <div className='flex-center'>
-                    <div className='text_weight m-r-10'>公众号授权:</div>
-                    <div className='text_dec'>暂未绑定（非关注投票无需授权）</div>
+        <Row className='setting-dashboard flex-between'>
+            <Col {...colLayout}>
+                <div className='setting-dashboard-card flex-between'>
+                    <div className='flex-center'>
+                        <div className='text_weight m-r-10'>公众号授权:</div>
+                        <div className='text_dec'>暂未绑定（非关注投票无需授权）</div>
+                    </div>
+                    <div className='flex-center setting-dashboard-card-button ripple'>
+                        公众号授权
+                    </div>
                 </div>
-                <div className='flex-center setting-dashboard-card-button ripple'>
-                    公众号授权
+            </Col>
+            <Col {...colLayout}>
+                <div className='setting-dashboard-card flex-between'>
+                    <div className='flex-center'>
+                        <div className='text_weight m-r-10'>绑定微信:</div>
+                        <div className='text_dec'>扫码绑定后可收到动态推送</div>
+                    </div>
+                    <div className='flex-center setting-dashboard-card-button  ripple'>
+                        点击绑定
+                    </div>
                 </div>
-            </div>
-            <div className='setting-dashboard-card flex-between'>
-                <div className='flex-center'>
-                    <div className='text_weight m-r-10'>绑定微信:</div>
-                    <div className='text_dec'>扫码绑定后可收到动态推送</div>
-                </div>
-                <div className='flex-center setting-dashboard-card-button  ripple'>
-                    点击绑定
-                </div>
-            </div>
-        </div>
+            </Col>
+        </Row>
     </div>
 }
-
 /**
  * @type React Component
  * @description 文章
  */
 function Acticle() {
-    return <div className='article-block'>
-        <div className='article-block-column'>
+    
+    return <Row className='article-block'>
+        <Col {...colLayout_1}  className='article-block-column'>
             <div className='article-block-column-header flex-between'>
                 <div className='flex-center article-block-column-header-title'>平台公告</div>
                 <div className='m-r-10 flex-center article-block-seemore'>
@@ -141,8 +166,8 @@ function Acticle() {
                     <div>2020-06-26 18:29:38</div>
                 </div>
             </div>
-        </div>
-        <div className='article-block-column'>
+        </Col>
+        <Col {...colLayout_1} className='article-block-column'>
             <div className='article-block-column-header flex-between'>
                 <div className='flex-center article-block-column-header-title'>使用教程</div>
                 <div className='m-r-10 flex-center article-block-seemore'>
@@ -150,12 +175,9 @@ function Acticle() {
                     查看更多
                 </div>
             </div>
-        </div>
-    </div>
+        </Col>
+    </Row>
 }
-
-
-
 /**
  * @type React Page
  * @description 管理中心

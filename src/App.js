@@ -14,7 +14,9 @@ import GobalStore from './store/gobalStore'
 import Login from './page/login';
 import NoMatch from './layout/404'
 import Management from './page/management/index'
-import VoteManage from './page/voteManage/index'
+import VoteManageEdit from './page/voteManage/voteEdit'
+import VoteManageList from './page/voteManage/voteList'
+
 
 
 function App() {
@@ -36,12 +38,13 @@ function App() {
               </Switch>
             </UserLayout>
           </Route>
-          <Route path='/admin/:path?' exact>
+          <Route path='/admin/:path?/:path?' exact>
             <AdminLayout>
               <Switch>
                 <Route path='/admin/setting' component={Index} />
                 <Route path='/admin/management' component={Management} />
-                <Route path='/admin/voteManage' />
+                <Route path='/admin/voteManage/list' component={VoteManageList} />
+                <Route path='/admin/voteManage/edit' component={VoteManageEdit}/>
               </Switch>
             </AdminLayout>
           </Route>
