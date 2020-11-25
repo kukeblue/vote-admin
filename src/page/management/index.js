@@ -183,7 +183,6 @@ function Acticle() {
  * @description 管理中心
  */
 function Management(props) {
-   
   return (
     <div className='page management-page'>
         <div className='text_page-title'>管理中心</div>

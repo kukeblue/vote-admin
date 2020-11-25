@@ -1,0 +1,1 @@
+scp -r ./build/ root@chome:/usr/share/ch_project/vote-admin/

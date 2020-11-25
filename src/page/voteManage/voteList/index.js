@@ -1,4 +1,4 @@
-import { Table, Tag } from 'antd';
+import { Row, Col, Table, Tag } from 'antd';
 import React, { useState } from 'react'
 import { useHistory } from 'react-router-dom';
 import './index.less'
@@ -31,10 +31,28 @@ function VoteListHeader() {
  * @description 投票具体内容
  */
 function VoteListContent() {
+    const col_layout_pic = {
+        lg: {span: 8},
+        md: {span: 12},
+        sm: {span: 24},
+        xs: {span: 24}
+    }
+    const col_layout_info = {
+        lg: {span: 12},
+        md: {span: 12},
+        sm: {span: 24},
+        xs: {span: 24}
+    }
+    const col_layout_option = {
+        lg: {span: 4},
+        md: {span: 0},
+        sm: {span: 0},
+        xs: {span: 0}
+    }
     return <div>
-        <div className='page-voteManageList-item flex-between'>
-            <div className='voteManageList-item-banner'></div>
-            <div className='voteManageList-item-info'>
+        <Row className='page-voteManageList-item flex-between'>
+            <Col {...col_layout_pic}><div className='voteManageList-item-banner'></div></Col>
+            <Col {...col_layout_info}><div className='voteManageList-item-info'>
                 <div className='flex-row-center'>
                     <Tag color="#87d068">进行中</Tag>
                     <span className='m-l-10 voteManageList-item-info-title'>横市县中小学优秀教师评选</span>
@@ -47,14 +65,15 @@ function VoteListContent() {
                     <div className='icon-button'> <span className='iconfont iconfangwen2'></span> 访问: 0</div>
                     <div className='icon-border-button ripple-black'> <span className='iconfont iconshuaxin'></span> 刷新</div>
                 </div>
-            </div>
-            <div className='voteManageList-item-option'>
+            </div></Col>
+            <Col {...col_layout_option}><div className='voteManageList-item-option'>
                 <div className='voteManageList-item-option-item ripple-black'>活动编辑</div>
                 <div className='voteManageList-item-option-item ripple-black'>统计</div>
                 <div className='voteManageList-item-option-item ripple-black'>分享</div>
                 <div className='voteManageList-item-option-item ripple-black'>清理</div>
             </div>
-        </div>
+            </Col>
+        </Row>
     </div>
 }
 

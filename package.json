@@ -22,7 +22,7 @@
     "start": "craco start --config craco.config.js",
     "build": "craco build",
     "test": "craco test",
-    "deploy": "ssh root@chome 'cd ~/project/vote-admin;git pull; yarn build'"
+    "deploy": "yarn build  &&sh deploy.sh"
     
   },
   "eslintConfig": {

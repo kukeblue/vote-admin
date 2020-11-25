@@ -12,9 +12,7 @@ import { createContainer, useContainer } from 'unstated-next'
  * @returns React.Dom
  */
 function Header() {
-
   const { phoneNavSpread, setPhoneNavSpread } = useContainer(AdminLayoutStroe) 
-
   // 点击手机端Nav展开控制器
   const onClickPhoneNavCtl = () => {
       setPhoneNavSpread(!phoneNavSpread)
@@ -22,7 +20,9 @@ function Header() {
 
   return <div className='layout-header'>
     <div className='layout-header-content flex-row-between'>
-      <img alt='' className='layout-header-logo' src={image_logo}></img>
+      <img onClick={()=>{
+        window.location.href = "/"
+      }} alt='' className='layout-header-logo' src={image_logo}></img>
       <div className='flex-center'>
         <Badge dot className='m-r-20'>
           <img alt='' className='layout-header-message' src={image_message}></img>
@@ -141,8 +141,6 @@ function AdminLayout(props) {
     </div>
   );
 }
-
-
 
 // VoteManage Store 数据商店
 function useAdminLayoutStroe() {

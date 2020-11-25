@@ -59,7 +59,6 @@
 }
 .setting-dashboard-card {
     flex: 1;
-    max-width: 529px;
     height: 106px;
     background: #FFFFFF;
     padding: 0px 27px;
@@ -68,7 +67,7 @@
         color: #3E3A39;
     }
     .setting-dashboard-card-button {
-        width: 114px;
+        min-width: 104px;
         height: 31px;
         background: #FF6A00;
         border-radius: 3px;
@@ -116,25 +115,30 @@
 
 /* ipad pro */
 @media screen and (max-width: 992px) {
-   
+    .setting-dashboard-card {
+        padding: 0 10px !important;
     }
-    /* ipad */
-    @media screen and (max-width: 768px) {
-        
+    .article-block-column {
+        padding: 21px 10px !important;
     }
-    /* iphone6 7 8 plus */
-    @media screen and (max-width: 414px) {
-        
-    }
-    /* iphoneX */
-    @media screen and (max-width: 375px) and (-webkit-device-pixel-ratio: 3) {
-   
-    }
-    /* iphone6 7 8 */
-    @media screen and (max-width: 375px) and (-webkit-device-pixel-ratio: 2) {
-   
-    }
-    /* iphone5 */
-    @media screen and (max-width: 320px) {
+}
+/* ipad */
+@media screen and (max-width: 768px) {
     
-    }
+}
+/* iphone6 7 8 plus */
+@media screen and (max-width: 414px) {
+    
+}
+/* iphoneX */
+@media screen and (max-width: 375px) and (-webkit-device-pixel-ratio: 3) {
+
+}
+/* iphone6 7 8 */
+@media screen and (max-width: 375px) and (-webkit-device-pixel-ratio: 2) {
+
+}
+/* iphone5 */
+@media screen and (max-width: 320px) {
+
+}
