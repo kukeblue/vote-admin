@@ -32,3 +32,23 @@ export const colLayout_voteEditor_preview = {
     sm: {span: 0},
     xs: {span: 0}
 }
+
+export const colLayout_editor = {
+    lg: {span: 14},
+    md: {span: 24},
+    sm: {span: 0},
+    xs: {span: 0}
+}
+
+export const colLayout_template = {
+    lg: {span: 10},
+    md: {span: 0},
+    sm: {span: 0},
+    xs: {span: 0}
+}
+export const colLayout_pageTemplate = {
+    lg: {span: 6},
+    md: {span: 5},
+    sm: {span: 8},
+    xs: {span: 12}
+}

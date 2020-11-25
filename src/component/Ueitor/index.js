@@ -6,7 +6,7 @@ const myConfig = {
     // 编辑器不自动被内容撑高
     autoHeightEnabled: false,
     // 初始容器高度
-    initialFrameHeight: 400,
+    initialFrameHeight: 500,
     // 初始容器宽度
     // initialFrameWidth: this.width,
     // 关闭自动保存

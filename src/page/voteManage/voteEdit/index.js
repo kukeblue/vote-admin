@@ -1,9 +1,18 @@
-import { Col, Input, Row, Form } from 'antd';
+import { Col, Input, Row, Form, Button } from 'antd';
 import React, { useState } from 'react'
 import { createContainer, useContainer } from 'unstated-next';
-import {colLayout_3, colLayout_2, colLayout_voteEditor_form, colLayout_voteEditor_preview } from '../../../config/colLayout';
-import Ueitor from '../../../component/Ueitor'
+import ReactIf from '../../../component/ReactIf';
+import {
+    colLayout_2, 
+    colLayout_voteEditor_form, 
+    colLayout_voteEditor_preview,
+} from '../../../config/colLayout';
 import './index.less'
+import image_phone from '../../../assets/images/phone.png'
+import Step1 from './step1'
+import Step2 from './step2'
+import Step3 from './step3'
+
 
 // 投票管理步骤条数据
 const steps = [
@@ -38,7 +47,7 @@ function VoteManageStep() {
     return <Row className='voteManage-step flex-between'>
             {
                 steps.map(item=>{
-                    return <Col {...colLayout_2}>
+                    return <Col key={item.index} {...colLayout_2}>
                     <div 
                         onClick={()=>setCurrectStep(item.index)}
                         key={item.name} 
@@ -54,60 +63,41 @@ function VoteManageStep() {
             }
     </Row>
 }
+
 /**
  * @type React Component
- * @description 投票编辑器
+ * @description 手机文章预览
  */
-function VoteEditor() {
-    
-    const formlayout = {
-        labelCol: { span: 24 },
-        wrapperCol: { span: 24 },
-    };
-
-    return <div className='voteManage-vote-editor'>
-        <Row>
-        <Col {...colLayout_voteEditor_form} >
-        <div className='editor-form'>
-            <div className='editor-form-title m-b-20'>投票基本信息</div>
-            <div className='m-l-5'>
-                <Form {...formlayout}>
-                    <Form.Item name="投票标题" label="投票标题" rules={[{ required: true }]}>
-                        <Input />
-                    </Form.Item>
-                    <Row>
-                        <Col {...colLayout_3}>
-                            <Form.Item style={{marginRight: 5}} name="投票开始时间" label="投票开始时间" rules={[{ required: true }]}>
-                                <Input />
-                            </Form.Item>
-                        </Col>
-                        <Col {...colLayout_3}>
-                            <Form.Item name="投票结束时间" label="投票结束时间" rules={[{ required: true }]}>
-                                <Input />
-                            </Form.Item>
-                        </Col>
-                    </Row>
-                    <Ueitor/>
-                </Form>
-            </div>
-        </div>
-        </Col>
-        <Col {...colLayout_voteEditor_preview}>
-        <div className='editor-preview'>
-            手机预览
-        </div>
-        </Col>
-    </Row>
+function ArticlePreview() {
+    return <div className='voteEdit-article-preview m-t-50 m-l-20'>
+        <img src={image_phone}/>
     </div>
 }
+
 /**
  * @type React Page
  * @description 投票管理页面
  */
 function VoteManage() {
+    const { currectStep } = useContainer(VoteManageStore)
     return <div className='page voteManage-page'>
         <VoteManageStep></VoteManageStep>
-        <VoteEditor></VoteEditor>
+        <div className='voteManage-vote-editor'>
+        <Row>
+        <Col {...colLayout_voteEditor_form} >
+            <ReactIf show={currectStep == 1}><Step1></Step1></ReactIf>
+            <ReactIf show={currectStep == 2}><Step2></Step2></ReactIf>
+            <ReactIf show={currectStep == 3}><Step3></Step3></ReactIf>
+        </Col>
+        <Col {...colLayout_voteEditor_preview}>
+            <ArticlePreview></ArticlePreview>
+            <div className='flex-center m-t-20 '>
+                <Button className='m-r-20 m-l-80'>刷新</Button>
+                <Button type="primary">发布活动</Button>
+            </div>
+        </Col>
+    </Row>
+    </div>
     </div>
 }
 
