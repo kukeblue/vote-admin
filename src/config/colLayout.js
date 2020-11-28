@@ -19,6 +19,13 @@ export const colLayout_3 = {
     xs: {span: 12}
 }
 
+export const colLayout_4 = {
+    lg: {span: 8},
+    md: {span: 12},
+    sm: {span: 24},
+    xs: {span: 24}
+}
+
 export const colLayout_voteEditor_form = {
     lg: {span: 16},
     md: {span: 24},

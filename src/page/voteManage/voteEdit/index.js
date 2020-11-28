@@ -12,6 +12,8 @@ import image_phone from '../../../assets/images/phone.png'
 import Step1 from './step1'
 import Step2 from './step2'
 import Step3 from './step3'
+import Step4 from './step4'
+
 
 
 // 投票管理步骤条数据
@@ -69,14 +71,14 @@ function VoteManageStep() {
  * @description 手机文章预览
  */
 function ArticlePreview() {
-    return <div className='voteEdit-article-preview m-t-50 m-l-20'>
-        <img src={image_phone}/>
+    return <div className='m-l-60'>
+        <img className='phone-preview-wrap' src={image_phone}/>
     </div>
 }
 
 /**
  * @type React Page
- * @description 投票管理页面
+ * @description 投票编辑页面
  */
 function VoteManage() {
     const { currectStep } = useContainer(VoteManageStore)
@@ -88,12 +90,15 @@ function VoteManage() {
             <ReactIf show={currectStep == 1}><Step1></Step1></ReactIf>
             <ReactIf show={currectStep == 2}><Step2></Step2></ReactIf>
             <ReactIf show={currectStep == 3}><Step3></Step3></ReactIf>
+            <ReactIf show={currectStep == 4}><Step4></Step4></ReactIf>
         </Col>
         <Col {...colLayout_voteEditor_preview}>
-            <ArticlePreview></ArticlePreview>
-            <div className='flex-center m-t-20 '>
-                <Button className='m-r-20 m-l-80'>刷新</Button>
-                <Button type="primary">发布活动</Button>
+            <div className='voteEdit-article-preview'>
+                <ArticlePreview></ArticlePreview>
+                <div className='flex-center m-t-20 '>
+                    <Button className='m-r-20 m-l-80'>刷新</Button>
+                    <Button type="primary">发布活动</Button>
+                </div>
             </div>
         </Col>
     </Row>

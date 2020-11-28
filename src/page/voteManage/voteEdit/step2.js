@@ -61,7 +61,7 @@ function Step2Table() {
  */
 function Step2Header() {
     return <div className='voteEdit-step2 m-t-5'> 
-        <div className='voteEdit-step2-header flex-warp'>
+        <div className='voteEdit-step2-header flex-wrap'>
             <Button className='m-r-5 m-b-10' style={{backgroundColor: '#45AAF2', borderColor: '#45AAF2'}} type="primary">添加选手</Button>
             <Button className='m-r-5 m-b-10' style={{backgroundColor: '#2BCBBA', borderColor: '#2BCBBA'}}  type="primary">分组管理</Button>
             <Button className='m-r-5 m-b-10' style={{backgroundColor: '#5EBA00', borderColor: '#5EBA00'}}  type="primary">批量添加选手</Button>
