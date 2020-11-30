@@ -16,9 +16,9 @@ function Header() {
   // 点击手机端Nav展开控制器
   const onClickPhoneNavCtl = () => {
       setPhoneNavSpread(!phoneNavSpread)
-  }
 
-  return <div className='layout-header'>
+  }
+  return <div  className='layout-header'>
     <div className='layout-header-content flex-row-between'>
       <img onClick={()=>{
         window.location.href = "/"
@@ -32,7 +32,7 @@ function Header() {
           <div className='layout-header-username'>马老师</div>
           <div className='layout-header-userVersion flex'>专业版</div>
         </div>
-        <span onClick={onClickPhoneNavCtl} className='nemu-button_phone iconcaidan1 iconfont'></span>
+        <a href="#page-header"><span onClick={onClickPhoneNavCtl} className='nemu-button_phone iconcaidan1 iconfont'></span></a>
       </div>
     </div>
   </div>
@@ -57,9 +57,6 @@ const paths = [
 function Nav() {
 
   let history = useHistory();
-
-  
-
   return <div className='layout-menu'>
     <div className='layout-menu-content flex-between'>
       {
@@ -87,8 +84,8 @@ function PhoneNav() {
   const { phoneNavSpread } = useContainer(AdminLayoutStroe) 
   const navAnimationClass =  (phoneNavSpread !== undefined) ? phoneNavSpread ? 'layout-phoneNav_spread' : 'layout-phoneNav_packup' : ''
   console.log(phoneNavSpread)
-  return <div className={`layout-phoneNav ${navAnimationClass}`}>
-      <div className='layout-phoneNav-content'>
+  return <div  className={`layout-phoneNav ${navAnimationClass}`}>
+      <div  className='layout-phoneNav-content'>
         {
           paths.map(item=>{
             return <a className={ history.location.pathname.includes(item.path) ? "layout-phoneNav-item_selected" : "layout-phoneNav-item"} key={item.path} href={item.path}>{item.name}</a>
@@ -128,10 +125,11 @@ function AdminLayout(props) {
   }, [])
   return (
     <div className='layout'>
+      {/* 顶部吸顶器 */}
+      <div id='page-header' style={{height: 72, backgroundColor: '#3E3A39'}}></div>
       <Header></Header>
       <Nav></Nav>
       <PhoneNav></PhoneNav>
-    <div>{gobalStore.token}</div>
       <div className='flex-column-center layout-content-wrap'>
         <div className='layout-content'>
           {props.children}

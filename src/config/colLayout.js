@@ -1,3 +1,9 @@
+export const colLayout_0 = {
+    lg: {span: 24},
+    md: {span: 24},
+    sm: {span: 24},
+    xs: {span: 24}
+}
 export const colLayout_1 = {
     lg: {span: 12},
     md: {span: 24},
@@ -24,6 +30,13 @@ export const colLayout_4 = {
     md: {span: 12},
     sm: {span: 24},
     xs: {span: 24}
+}
+
+export const colLayout_5 = {
+    lg: {span: 12},
+    md: {span: 12},
+    sm: {span: 12},
+    xs: {span: 12}
 }
 
 export const colLayout_voteEditor_form = {

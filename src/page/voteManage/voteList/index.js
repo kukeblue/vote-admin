@@ -1,16 +1,34 @@
 import { Row, Col, Table, Tag } from 'antd';
 import React, { useState } from 'react'
 import { useHistory } from 'react-router-dom';
+import { isMobile } from '../../../utils/env';
 import './index.less'
+
+const col_layout_pic = {
+    lg: {span: 8},
+    md: {span: 12},
+    sm: {span: 24},
+    xs: {span: 24}
+}
+const col_layout_info = {
+    lg: {span: 12},
+    md: {span: 12},
+    sm: {span: 24},
+    xs: {span: 24}
+}
+const col_layout_option = {
+    lg: {span: 4},
+    md: {span: 0},
+    sm: {span: 0},
+    xs: {span: 0}
+}
 
 /**
  * @type React Component
  * @description 投票列表头部
  */
 function VoteListHeader() {
-
     const history = useHistory()
-
     return <div className='page-voteManageList-header flex-between'>
         <div className='text'>共<span className='m-r-5 m-l-10 color-primary'>0</span>个投票</div> 
         <div className='flex-center'> 
@@ -26,30 +44,21 @@ function VoteListHeader() {
     </div>
 }
 
+
 /**
  * @type React Component
  * @description 投票具体内容
  */
 function VoteListContent() {
-    const col_layout_pic = {
-        lg: {span: 8},
-        md: {span: 12},
-        sm: {span: 24},
-        xs: {span: 24}
+    const history = useHistory()
+
+    const clickItemInPhone = () => {
+        if(isMobile) {
+            history.push('/admin/voteManage/edit')
+        }
     }
-    const col_layout_info = {
-        lg: {span: 12},
-        md: {span: 12},
-        sm: {span: 24},
-        xs: {span: 24}
-    }
-    const col_layout_option = {
-        lg: {span: 4},
-        md: {span: 0},
-        sm: {span: 0},
-        xs: {span: 0}
-    }
-    return <div>
+
+    return <div onClick={clickItemInPhone}>
         <Row className='page-voteManageList-item flex-between'>
             <Col {...col_layout_pic}><div className='voteManageList-item-banner'></div></Col>
             <Col {...col_layout_info}><div className='voteManageList-item-info'>

@@ -1,46 +1,31 @@
 import { Table, Col, Row } from 'antd'
 import React from 'react'
-import { colLayout_1 } from '../../config/colLayout'
+import { useHistory } from 'react-router-dom'
+import { colLayout_1, colLayout_2} from '../../config/colLayout'
 import './index.less'
 /**
  * @type React Component
  * @description 状态仪表盘（快速跳转）
  */
 function Dashboard() {
-
-    const colLayout = {
-        lg: {span: 6},
-        md: {span: 12},
-        sm: {span: 24},
-        xs: {span: 24}
-
-    }
-
+    let list = [
+        {count: 5, name: '还未开始投票活动'},
+        {count: 1, name: '正在进行中的活动'},
+        {count: 258, name: '投票选手合计数量'},
+        {count: 8, name: '已结束的投票活动'},
+    ]
+    const history = useHistory()
     return <Row className='flex-between dashboard'>
-        <Col {...colLayout} className='m-b-20'>
-        <div  className='dashboard-card bg-primary'>
-            <div className='dashboard-card-activityCount'>5</div>
-            <div className='dashboard-card-activityDec'>还未开始投票活动</div>
-        </div>
-        </Col>
-        <Col {...colLayout} className='m-b-20'>
-        <div  className='dashboard-card'>
-            <div className='dashboard-card-activityCount'>1</div>
-            <div className='dashboard-card-activityDec'>正在进行中的活动</div>
-        </div>
-        </Col>
-        <Col {...colLayout} className='m-b-20'>
-        <div className='dashboard-card'>
-            <div className='dashboard-card-activityCount'>258</div>
-            <div className='dashboard-card-activityDec'>投票选手合计数量</div>
-        </div>
-        </Col>
-        <Col {...colLayout} className='m-b-20'>
-        <div  className='dashboard-card'>
-            <div className='dashboard-card-activityCount'>5</div>
-            <div className='dashboard-card-activityDec'>已结束的投票活动</div>
-        </div>
-        </Col>
+        {
+        list.map(item=><Col onClick={
+           ()=> history.push('/admin/voteManage/list')
+        } {...colLayout_2} className='m-b-20'>
+            <div  className='dashboard-card'>
+            <div className='dashboard-card-activityCount'>{item.count}</div>
+                <div className='dashboard-card-activityDec'>{item.name}</div>
+            </div>
+        </Col>)
+        }
     </Row>
 }
 /**
@@ -103,7 +88,7 @@ function LatestActivity() {
  * @description 我的资料
  */
 function MyInformation() {
-    const colLayout = {
+    const colLayout_2 = {
         lg: {span: 12},
         md: {span: 24},
         sm: {span: 24},
@@ -112,7 +97,7 @@ function MyInformation() {
     return <div>
     <div className='text_page-title'>我的资料</div>
         <Row className='setting-dashboard flex-between'>
-            <Col {...colLayout}>
+            <Col {...colLayout_2}>
                 <div className='setting-dashboard-card flex-between'>
                     <div className='flex-center'>
                         <div className='text_weight m-r-10'>公众号授权:</div>
@@ -123,7 +108,7 @@ function MyInformation() {
                     </div>
                 </div>
             </Col>
-            <Col {...colLayout}>
+            <Col {...colLayout_2}>
                 <div className='setting-dashboard-card flex-between'>
                     <div className='flex-center'>
                         <div className='text_weight m-r-10'>绑定微信:</div>

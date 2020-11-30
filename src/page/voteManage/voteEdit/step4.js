@@ -1,9 +1,11 @@
 
 import React from 'react'
-import { Radio, Input, Row, Col, Form, Switch, Select, TimePicker, Alert, InputNumber} from 'antd'
-import { colLayout_1, colLayout_4} from '../../../config/colLayout'
+import { Radio, Input, Row, Col, Form, Switch, Select, TimePicker, Alert, InputNumber, Button} from 'antd'
+import { colLayout_1, colLayout_4, colLayout_5, colLayout_0} from '../../../config/colLayout'
+import PreSelectInput from '../../../component/Form/PreSelectInput';
 const { RangePicker } = TimePicker;
 const { TextArea } = Input;
+const { Option } = Select;
 /**
  * @type React Component
  * @description 规则设置
@@ -318,17 +320,182 @@ function DataSetting() {
     </div>
 }
 
+const optionsWithDisabled = [
+    { label: '选填', value: '选填' },
+    { label: '必填', value: '必填' },
+    { label: '隐藏', value: '隐藏'},
+];
+
 /**
  * @type React Component
  * @description 在线报名
  */
 function ApplySetting() {
+    
     return <div className='voteEdit-settingBlock m-t-30'>
         <div className='setting-header flex-between'>
             <div className='text_title'>在线报名</div>
         </div>
         <div className='setting-content'>
-           
+            <Form
+                labelCol= {{ span: 24 }}
+                wrapperCol= {{ span: 24 }}
+            >
+            <Row>
+                <Col {...colLayout_5}>
+                    <div>
+                        <Form.Item
+                            label="报名开关"
+                            name="报名开关"
+                        >
+                            <Radio.Group value='1'>
+                                <Radio value='1'>关闭</Radio>
+                                <Radio value='2'>开启</Radio>
+                            </Radio.Group>
+                        </Form.Item>
+                    </div>
+                </Col>
+                <Col {...colLayout_5}>
+                    <div>
+                        <Form.Item
+                            label="自动审核"
+                            name="自动审核"
+                        >
+                            <Radio.Group value='1'>
+                                <Radio value='1'>关闭</Radio>
+                                <Radio value='2'>开启</Radio>
+                            </Radio.Group>
+                        </Form.Item>
+                    </div>
+                </Col>
+                <Col {...colLayout_5}>
+                    <div>
+                        <Form.Item
+                            label="同一微信多次报名"
+                            name="同一微信多次报名"
+                        >
+                            <Radio.Group value='1'>
+                                <Radio  value='1'>不允许</Radio>
+                                <Radio value='2'>允许</Radio>
+                            </Radio.Group>
+                        </Form.Item>
+                    </div>
+
+                </Col>
+                <Col {...colLayout_5}>
+                    <div>
+                        <Form.Item
+                            label="开起手机验证码"
+                            name="开起手机验证码"
+                        >
+                            <Radio.Group value='1'>
+                                <Radio value='1'>关闭</Radio>
+                                <Radio value='2'>开启</Radio>
+                            </Radio.Group>
+                        </Form.Item>
+                    </div>
+                </Col>
+                <Col {...colLayout_0}>
+                    <div>
+                        <Form.Item
+                            label="选手报名微信通知"
+                            name="选手报名微信通知"
+                        >
+                            <Radio.Group value='1'>
+                                <Radio value='1'>关闭</Radio>
+                                <Radio value='2'>开启</Radio>
+                            </Radio.Group>
+                        </Form.Item>
+                    </div>
+                </Col>
+                <Col {...colLayout_1}>
+                    <div>
+                        <Form.Item
+                            label="报名开始时间"
+                            name="报名开始时间"
+                        >
+                            <RangePicker showTime />
+                        </Form.Item>
+                    </div>
+                </Col>
+                <Col {...colLayout_1}>
+                    <div>
+                        <Form.Item
+                            label="报名结束时间"
+                            name="报名结束时间"
+                        >
+                            <RangePicker showTime />
+                        </Form.Item>
+                    </div>
+                </Col>
+                <Col {...colLayout_4}>
+                    <div>
+                        <Form.Item
+                            label="报名图片最少上传几张"
+                            name="报名图片最少上传几张"
+                        >
+                            <div>
+                                <InputNumber min={1} max={10} defaultValue={3} className='m-r-10' /> 张
+                            </div>
+                        </Form.Item>
+                    </div>
+                </Col>
+                <Col {...colLayout_4}>
+                    <div>
+                        <Form.Item
+                            label="报名图片最多上传几张"
+                            name="报名图片最多上传几张"
+                        >
+                            <div>
+                                <InputNumber min={1} max={10} defaultValue={6} className='m-r-10' /> 张
+                            </div>
+                        </Form.Item>
+                    </div>
+                </Col>
+                <Col {...colLayout_4}>
+                    <div>
+                        <Form.Item
+                            label="报名图片表单字段显示名称"
+                            name="报名图片表单字段显示名称"
+                        >
+                            <div>
+                               <PreSelectInput />
+                            </div>
+                        </Form.Item>
+                    </div>
+                </Col>
+            </Row>
+            </Form>
+            <div className='m-b-50 m-t-30'>
+                <div className='step-form-label_small m-t-10 m-b-15'>
+                    报名表单
+                </div>
+                <div className='p-l-45 step4-applyFormSetting-wrap'>
+                    <div className='step4-applyFormSetting'>
+                    <div className='flex-row-center'>
+                        <div className='m-r-20'><Input placeholder='报名项名称' style={{width: 120}}/></div>
+                        <div className='m-r-20'>
+                        <Select defaultValue="单行输入框" style={{ width: 120 }}>
+                            <Option value="单行输入框">单行输入框</Option>
+                        </Select>    
+                        </div>
+                        <div>
+                        <Radio.Group
+                            value='选填'
+                            options={optionsWithDisabled}
+                            optionType="button"
+                            buttonStyle="solid"
+                        />
+                        </div>
+                    </div>
+                  
+                    </div>
+                </div>
+                <div className='m-l-45 m-t-50'>
+                        <Button type='primary'>添加表单</Button>
+                </div>            
+            </div>
+
         </div>
     </div>
 }
@@ -355,6 +522,11 @@ function Step4() {
        <DataSetting/>
        {/* 在线报名 */}
        <ApplySetting/>
+       <div className='flex-center m-t-20'>
+            <Button className='m-r-10'>上一步</Button>
+            <Button className='m-r-10' type="primary">返回列表</Button>
+            <Button className='m-r-10' type="primary">发布分享</Button>
+        </div>
     </div>
 }
 
