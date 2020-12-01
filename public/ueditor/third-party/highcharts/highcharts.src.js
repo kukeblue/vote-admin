@@ -3440,7 +3440,7 @@ SVGRenderer.prototype = {
 			fill: {
 				linearGradient: verticalGradient,
 				stops: [
-					[0, '#FFF'],
+					[0, '#FFFFFF'],
 					[1, '#ACF']
 				]
 			}

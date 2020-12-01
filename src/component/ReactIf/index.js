@@ -1,9 +1,7 @@
 import React  from 'react'
 
-function ReactIf(props) {
-    return <div style={props.show ?{} : {display:'none'}}>
-        {props.children}
+export  function ReactIf({children, show}) {
+    return <div style={show ?{} : {display:'none'}}>
+        {children}
     </div>
 }
-
-export default ReactIf

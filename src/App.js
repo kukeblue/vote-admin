@@ -16,6 +16,12 @@ import NoMatch from './layout/404'
 import Management from './page/management/index'
 import VoteManageEdit from './page/voteManage/voteEdit'
 import VoteManageList from './page/voteManage/voteList'
+import VoteResult from './page/voteManage/voteResult'
+import SeriesList from './page/series/seriesList'
+import SeriesEdit from './page/series/seriesEdit'
+import AccountUpgrade from './page/accountUpgrade/index'
+
+
 
 
 
@@ -43,8 +49,12 @@ function App() {
               <Switch>
                 <Route path='/admin/setting' component={Index} />
                 <Route path='/admin/management' component={Management} />
-                <Route path='/admin/voteManage/list' component={VoteManageList} />
+                <Route path='/admin/voteManage/result' component={VoteResult}/>
                 <Route path='/admin/voteManage/edit' component={VoteManageEdit}/>
+                <Route path='/admin/voteManage' component={VoteManageList} />
+                <Route path='/admin/series/seriesList' component={SeriesList}/>
+                <Route path='/admin/series/seriesEdit' component={SeriesEdit}/>
+                <Route path='/admin/accountUpgrade' component={AccountUpgrade}/>
               </Switch>
             </AdminLayout>
           </Route>
@@ -55,6 +65,12 @@ function App() {
     </GobalStore.Provider>
 
   );
+}
+
+export const PathMap = {
+  '/management' : '管理中心',
+  '/voteManage': '投票管理',
+  '/voteManage/result': '投票结果'
 }
 
 export default App;

@@ -1,7 +1,7 @@
 import { Col, Input, Row, Form, Button } from 'antd';
 import React, { useState } from 'react'
 import { createContainer, useContainer } from 'unstated-next';
-import ReactIf from '../../../component/ReactIf';
+import { ReactIf } from '../../../component/ReactIf';
 import {
     colLayout_2, 
     colLayout_voteEditor_form, 

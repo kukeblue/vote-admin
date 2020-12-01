@@ -5,7 +5,7 @@
     position: absolute;
     width: 0;
     height: 0;
-    background: #fff;
+    background: #FFFFFF;
     overflow: hidden;
     display: none;
 }
@@ -21,13 +21,13 @@
     height: 21px;
     line-height: 21px;
     margin: 8px 5px;
-    background: #FFF;
+    background: #FFFFFF;
     border: 1px solid #d7d7d7;
 }
-#videoSearchTxt{margin-left:15px;background: #FFF;width:200px;height:21px;line-height:21px;border: 1px solid #d7d7d7;}
+#videoSearchTxt{margin-left:15px;background: #FFFFFF;width:200px;height:21px;line-height:21px;border: 1px solid #d7d7d7;}
 #searchList{width: 570px;overflow: auto;zoom:1;height: 270px;}
 #searchList div{float: left;width: 120px;height: 135px;margin: 5px 15px;}
-#searchList img{margin: 2px 8px;cursor: pointer;border: 2px solid #fff} /*不用缩略图*/
+#searchList img{margin: 2px 8px;cursor: pointer;border: 2px solid #FFFFFF} /*不用缩略图*/
 #searchList p{margin-left: 10px;}
 #videoType{
     width: 65px;
@@ -49,7 +49,7 @@
 
 #preview{position: relative;width: 420px;padding:0;overflow: hidden; margin-left: 10px; _margin-left:5px; height: 280px;background-color: #ddd;float: left}
 #preview .previewMsg {position:absolute;top:0;margin:0;padding:0;height:280px;width:100%;background-color: #666;}
-#preview .previewMsg span{display:block;margin: 125px auto 0 auto;text-align:center;font-size:18px;color:#fff;}
+#preview .previewMsg span{display:block;margin: 125px auto 0 auto;text-align:center;font-size:18px;color:#FFFFFF;}
 #preview .previewVideo {position:absolute;top:0;margin:0;padding:0;height:280px;width:100%;}
 .edui-video-wrapper fieldset{
     border: 1px solid #ddd;
@@ -74,7 +74,7 @@ fieldset input.txt{
     height: 21px;
     line-height: 21px;
     margin: 8px 5px;
-    background: #FFF;
+    background: #FFFFFF;
     border: 1px solid #d7d7d7;
 }
 label.url{font-weight: bold;margin-left: 5px;color: #06c;}
@@ -92,7 +92,7 @@ span.view{display: inline-block;width: 30px;float: right;cursor: pointer;color: 
     overflow: hidden;
     position: absolute !important;
     clip: rect(1px, 1px, 1px, 1px);
-    background: #fff;
+    background: #FFFFFF;
     display: block;
 }
 .tabbody #upload.panel.focus {
@@ -152,7 +152,7 @@ span.view{display: inline-block;width: 30px;float: right;cursor: pointer;color: 
     line-height: 44px;
     padding: 0 30px;
     *width: 120px;
-    color: #fff;
+    color: #FFFFFF;
     display: inline-block;
     margin: 0 auto 20px auto;
     cursor: pointer;
@@ -341,7 +341,7 @@ span.view{display: inline-block;width: 30px;float: right;cursor: pointer;color: 
 
 #upload .filelist li p.error {
     background: #f43838;
-    color: #fff;
+    color: #FFFFFF;
     position: absolute;
     bottom: 0;
     left: 0;
@@ -450,7 +450,7 @@ span.view{display: inline-block;width: 30px;float: right;cursor: pointer;color: 
 #upload .statusBar .progress {
     border: 1px solid #1483d8;
     width: 198px;
-    background: #fff;
+    background: #FFFFFF;
     height: 18px;
     position: absolute;
     top: 12px;
@@ -494,7 +494,7 @@ span.view{display: inline-block;width: 30px;float: right;cursor: pointer;color: 
 #upload .statusBar .btns .uploadBtn,
 #upload .statusBar .btns .uploadBtn.state-uploading,
 #upload .statusBar .btns .uploadBtn.state-paused {
-    background: #ffffff;
+    background: #FFFFFF;
     border: 1px solid #cfcfcf;
     color: #565656;
     padding: 0 18px;
@@ -519,7 +519,7 @@ span.view{display: inline-block;width: 30px;float: right;cursor: pointer;color: 
 #upload .statusBar .btns .uploadBtn,
 #upload .statusBar .btns .uploadBtn.state-paused{
     background: #00b7ee;
-    color: #fff;
+    color: #FFFFFF;
     border-color: transparent;
 }
 #upload .statusBar .btns .uploadBtn:hover,

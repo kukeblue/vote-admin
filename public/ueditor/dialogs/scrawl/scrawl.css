@@ -34,7 +34,7 @@ em{font-style: normal;}
 */
 .maskLayerNull{display: none;}
 .maskLayer{position: absolute;top:0;left:0;width: 100%; height: 100%;opacity: 0.7;
-    background-color: #fff;text-align:center;font-weight:bold;line-height:300px;z-index: 1000;}
+    background-color: #FFFFFF;text-align:center;font-weight:bold;line-height:300px;z-index: 1000;}
 /*btn state
 */
 .previousStepH .icon{display: inline-block;width:16px;height:16px;background-image: url('images/undoH.png');cursor: pointer;}

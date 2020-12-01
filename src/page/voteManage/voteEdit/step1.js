@@ -26,11 +26,12 @@ function ArticleTemplate() {
  * @type React Component
  * @description 投票编辑器
  */
+const formlayout = {
+    labelCol: { span: 24 },
+    wrapperCol: { span: 24 },
+};
 function VoteEditor() {
-    const formlayout = {
-        labelCol: { span: 24 },
-        wrapperCol: { span: 24 },
-    };
+    
     return <div className='editor-form'>
             <div className='editor-form-title m-b-20'>投票基本信息</div>
             <div className='m-l-5'>

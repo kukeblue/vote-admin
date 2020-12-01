@@ -26,7 +26,7 @@
     position: absolute;
     width: 0;
     height: 0;
-    background: #fff;
+    background: #FFFFFF;
     overflow: hidden;
     display: none;
 }
@@ -44,7 +44,7 @@
     overflow: hidden;
     position: absolute !important;
     clip: rect(1px, 1px, 1px, 1px);
-    background: #fff;
+    background: #FFFFFF;
     display: block;
 }
 
@@ -100,7 +100,7 @@
     line-height: 44px;
     padding: 0 30px;
     *width: 120px;
-    color: #fff;
+    color: #FFFFFF;
     display: inline-block;
     margin: 0 auto 20px auto;
     cursor: pointer;
@@ -289,7 +289,7 @@
 
 #upload .filelist li p.error {
     background: #f43838;
-    color: #fff;
+    color: #FFFFFF;
     position: absolute;
     bottom: 0;
     left: 0;
@@ -398,7 +398,7 @@
 #upload .statusBar .progress {
     border: 1px solid #1483d8;
     width: 198px;
-    background: #fff;
+    background: #FFFFFF;
     height: 18px;
     position: absolute;
     top: 12px;
@@ -442,7 +442,7 @@
 #upload .statusBar .btns .uploadBtn,
 #upload .statusBar .btns .uploadBtn.state-uploading,
 #upload .statusBar .btns .uploadBtn.state-paused {
-    background: #ffffff;
+    background: #FFFFFF;
     border: 1px solid #cfcfcf;
     color: #565656;
     padding: 0 18px;
@@ -467,7 +467,7 @@
 #upload .statusBar .btns .uploadBtn,
 #upload .statusBar .btns .uploadBtn.state-paused{
     background: #00b7ee;
-    color: #fff;
+    color: #FFFFFF;
     border-color: transparent;
 }
 #upload .statusBar .btns .uploadBtn:hover,

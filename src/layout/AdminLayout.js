@@ -37,42 +37,45 @@ function Header() {
     </div>
   </div>
 }
-
 const paths = [
   {
     path:'/admin/management',
     name:'管理中心',
   },
   {
-    path:'/admin/voteManage/list',
+    path:'/admin/voteManage',
     name:'投票管理',
+  },
+  {
+    path: '/admin/series/seriesList',
+    name:'投票专题',
+  },
+  {
+    path: '/admin/accountUpgrade',
+    name:'账户升级',
   }
 ]
-
 /**
  * @description nav导航组件
  * @type React Component
  * @returns React.Dom
  */
 function Nav() {
-
   let history = useHistory();
   return <div className='layout-menu'>
     <div className='layout-menu-content flex-between'>
       {
         paths.map(item=>{
-          return <a key={item.path} href={item.path} className={ history.location.pathname.includes(item.path) ? "layout-menu-item_selected" : "layout-menu-item"}>{item.name}</a>
+          return <a key={item.path} href={item.path} className={ history.location.pathname.includes(item.path.split('/')[2]) ? "layout-menu-item_selected" : "layout-menu-item"}>{item.name}</a>
         })
       }
-      <a className="layout-menu-item">专题展示</a>
-      <a className="layout-menu-item">账户升级</a>
+      {/* <a className="layout-menu-item">专题展示</a> */}
       <a className="layout-menu-item">财务升级</a>
       <a className="layout-menu-item">账户信息</a>
       <a className="layout-menu-item">开放API</a>
     </div>
   </div>
 }
-
 /**
  * @description nav导航组件手机版本
  * @type React Component
@@ -88,18 +91,15 @@ function PhoneNav() {
       <div  className='layout-phoneNav-content'>
         {
           paths.map(item=>{
-            return <a className={ history.location.pathname.includes(item.path) ? "layout-phoneNav-item_selected" : "layout-phoneNav-item"} key={item.path} href={item.path}>{item.name}</a>
+            return <a className={ history.location.pathname.includes(item.path.split('/')[2]) ? "layout-phoneNav-item_selected" : "layout-phoneNav-item"} key={item.path} href={item.path}>{item.name}</a>
           })
         }
-        <a className='layout-phoneNav-item'>专题展示</a>
-        <a className='layout-phoneNav-item'>账户升级</a>
         <a className='layout-phoneNav-item'>财务升级</a>
         <a className='layout-phoneNav-item'>账户信息</a>
         <a className='layout-phoneNav-item'>开放API</a>
       </div>
   </div>
 }
-
 /**
  * @description Layout底部
  * @type React Component

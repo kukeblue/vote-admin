@@ -8514,7 +8514,7 @@ postcss-convert-values@^4.0.1:
 
 postcss-custom-media@^7.0.8:
   version "7.0.8"
-  resolved "https://registry.npm.taobao.org/postcss-custom-media/download/postcss-custom-media-7.0.8.tgz#fffd13ffeffad73621be5f387076a28b00294e0c"
+  resolved "https://registry.npm.taobao.org/postcss-custom-media/download/postcss-custom-media-7.0.8.tgz#FFFFFFd13ffeffad73621be5f387076a28b00294e0c"
   integrity sha1-//0T/+/61zYhvl84cHaiiwApTgw=
   dependencies:
     postcss "^7.0.14"

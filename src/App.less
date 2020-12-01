@@ -1,4 +1,5 @@
 @import '~antd/dist/antd.less';
+@import './assets/less/common-element.less';
 
 .ant-form-item-label {
   font-size: 14px !important;
@@ -14,7 +15,7 @@
 }
 
 .ant-table-thead > tr > th {
-  background-color: #fff !important;
+  background-color: #FFFFFF !important;
   height: 38px !important;
   padding: 0px 16px ;
   color: #3E3A39 !important;
@@ -24,19 +25,9 @@
 .ant-table-cell {
 }
 
-// ******* color setting *******
-
-.bg-primary {
-  background-color: #FF6146 !important;
-}
-.color-primary {
-  color: #FF6146 !important;
-}
-
 
 
 // ******* text setting *******
-
 .text_page-title {
   font-weight: 500;
   font-size: 22px;
@@ -53,9 +44,24 @@
   font-size: 13px;
 }
 
+.blod {
+  font-weight: 500;
+}
+
 .text_title {
   font-weight: 500;
   font-size: 18px;
+  color: #3E3A39;
+}
+
+.text_title2 {
+  font-size: 16px;
+  color: #3E3A39;
+}
+
+.text_title_small {
+  font-weight: 500;
+  font-size: 16px;
   color: #3E3A39;
 }
 
@@ -65,12 +71,30 @@
 }
 
 .dropDown {
-  background-color: #fff;
+  background-color: #FFFFFF;
   padding: 0px 10px;
   height: 32px;
   border: 1px solid #ccc;
   box-sizing: border-box;
 }
+
+// ******* color setting *******
+
+.bg-primary {
+  background-color: #FF6146 !important;
+}
+.color-primary {
+  color: #FF6146 !important;
+}
+
+.color-666 {
+  color: #666666;
+}
+.color-fff {
+  color: #FFFFFF;
+
+}
+
 
 // 水波特效
 
@@ -120,10 +144,8 @@
 }
 
 .ripple-black:hover {
-  background-color: #eee !important;
+  // background-color: #eee !important;
 }
-
-
 
 .ripple-black:after {
   content: "";
@@ -163,9 +185,6 @@
   width: 100%;
   min-height: 800px;
 }
-
-
-
 div {
   box-sizing: content-box;
 }
@@ -208,7 +227,10 @@ div {
   }
   .loopStyle((@counter - 5));    // 递归调用自身
 }
+
 .loopStyle(100);
+
+
 div {
   box-sizing: border-box;
 }

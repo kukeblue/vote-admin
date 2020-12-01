@@ -215,7 +215,7 @@ var scrawl = function (options) {
 
                     context.lineWidth = parseInt(size);
                     context.globalCompositeOperation = "destination-out";
-                    context.strokeStyle = "#FFF";
+                    context.strokeStyle = "#FFFFFF";
                 }
             });
         },
@@ -388,7 +388,7 @@ var scrawl = function (options) {
                 context.drawImage(img, x, y, img.width, img.height);
             } else {
                 context.globalCompositeOperation = "destination-atop";
-                context.fillStyle = "#fff";//重置画布背景白色
+                context.fillStyle = "#FFFFFF";//重置画布背景白色
                 context.fillRect(0, 0, canvas.width, canvas.height);
             }
             try {
@@ -420,7 +420,7 @@ var ScaleBoy = function () {
         var doc = document,
             head = doc.getElementsByTagName('head')[0],
             style = doc.createElement('style'),
-            cssText = '.scale{visibility:hidden;cursor:move;position:absolute;left:0;top:0;width:100px;height:50px;background-color:#fff;font-size:0;line-height:0;opacity:.4;filter:Alpha(opacity=40);}'
+            cssText = '.scale{visibility:hidden;cursor:move;position:absolute;left:0;top:0;width:100px;height:50px;background-color:#FFFFFF;font-size:0;line-height:0;opacity:.4;filter:Alpha(opacity=40);}'
                 + '.scale span{position:absolute;left:0;top:0;width:6px;height:6px;background-color:#006DAE;}'
                 + '.scale .hand0, .scale .hand7{cursor:nw-resize;}'
                 + '.scale .hand1, .scale .hand6{left:50%;margin-left:-3px;cursor:n-resize;}'

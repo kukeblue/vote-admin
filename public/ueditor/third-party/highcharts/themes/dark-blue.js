@@ -113,7 +113,7 @@ Highcharts.theme = {
 			color: '#A0A0A0'
 		},
 		itemHoverStyle: {
-			color: '#FFF'
+			color: '#FFFFFF'
 		},
 		itemHiddenStyle: {
 			color: '#444'
@@ -231,7 +231,7 @@ Highcharts.theme = {
 				]
 			},
 		buttonBorderColor: '#CCC',
-		rifleColor: '#FFF',
+		rifleColor: '#FFFFFF',
 		trackBackgroundColor: {
 			linearGradient: { x1: 0, y1: 0, x2: 0, y2: 1 },
 			stops: [

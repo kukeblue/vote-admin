@@ -993,7 +993,7 @@ var utils = (UE.utils = {
      * @param { String } rgb格式的颜色值
      * @param { String }
      * @example
-     * rgb(255,255,255)  => "#ffffff"
+     * rgb(255,255,255)  => "#FFFFFF"
      */
   fixColor: function(name, value) {
     if (/color/i.test(name) && /rgba?/.test(value)) {
@@ -3472,7 +3472,7 @@ var domUtils = (dom.domUtils = {
       if (parent.tagName == node.tagName || parent.tagName == "A") {
         //针对a标签单独处理
         domUtils.trimWhiteTextNode(parent);
-        //span需要特殊处理  不处理这样的情况 <span stlye="color:#fff">xxx<span style="color:#ccc">xxx</span>xxx</span>
+        //span需要特殊处理  不处理这样的情况 <span stlye="color:#FFFFFF">xxx<span style="color:#ccc">xxx</span>xxx</span>
         if (
           (parent.tagName == "SPAN" && !domUtils.isSameStyle(parent, node)) ||
           (parent.tagName == "A" && node.tagName == "SPAN")
@@ -11887,7 +11887,7 @@ UE.plugin.register("background", function() {
         var html = '<style type="text/css">body{';
         var bgObj = {
           "background-color":
-            domUtils.getComputedStyle(body, "background-color") || "#ffffff",
+            domUtils.getComputedStyle(body, "background-color") || "#FFFFFF",
           "background-image": url ? "url(" + url + ")" : "",
           "background-repeat":
             domUtils.getComputedStyle(body, "background-repeat") || "",
@@ -21127,7 +21127,7 @@ UE.plugins["video"] = function() {
         value = utils.extend(
           {
             repeat: true,
-            colorList: ["#ddd", "#fff"]
+            colorList: ["#ddd", "#FFFFFF"]
           },
           value
         );
@@ -24165,7 +24165,7 @@ UE.plugins["table"] = function() {
       if (td[0]) {
         if (flag) {
           color = td[0].style.borderColor.replace(/\s/g, "");
-          if (/(#ffffff)|(rgb\(255,255,255\))/gi.test(color))
+          if (/(#FFFFFF)|(rgb\(255,255,255\))/gi.test(color))
             domUtils.addClass(node, "noBorderTable");
         } else {
           domUtils.removeClasses(node, "noBorderTable");

@@ -1,7 +1,15 @@
-import { Row, Col, Table, Tag } from 'antd';
+import { Row, Col, Menu, Tag, Dropdown } from 'antd';
 import React, { useState } from 'react'
 import { useHistory } from 'react-router-dom';
 import { isMobile } from '../../../utils/env';
+import { CBreadcrumb } from '../../../component/CBreadcrumb'
+import { 
+    CaretDownOutlined, 
+    FormOutlined, 
+    BarChartOutlined, 
+    ShareAltOutlined, 
+    ClearOutlined 
+} from '@ant-design/icons';
 import './index.less'
 
 const col_layout_pic = {
@@ -50,10 +58,16 @@ function VoteListHeader() {
  * @description 投票具体内容
  */
 function VoteListContent() {
+
     const history = useHistory()
 
+    // 跳转投票结果
+    const toVoteResultPage = () => {
+        history.push('/admin/voteManage/result')
+    }
+
     const clickItemInPhone = () => {
-        if(isMobile) {
+        if(isMobile()) {
             history.push('/admin/voteManage/edit')
         }
     }
@@ -76,11 +90,30 @@ function VoteListContent() {
                 </div>
             </div></Col>
             <Col {...col_layout_option}><div className='voteManageList-item-option'>
-                <div className='voteManageList-item-option-item ripple-black'>活动编辑</div>
-                <div className='voteManageList-item-option-item ripple-black'>统计</div>
-                <div className='voteManageList-item-option-item ripple-black'>分享</div>
-                <div className='voteManageList-item-option-item ripple-black'>清理</div>
-            </div>
+                <div className='voteManageList-item-option-item ripple-black'>
+                   <FormOutlined/> 活动编辑
+                </div>
+                    <Dropdown overlay={
+                    <Menu>
+                        <Menu.Item className onClick={toVoteResultPage}>结果排名</Menu.Item>
+                    </Menu>
+                    }>
+                    <div className='voteManageList-item-option-item ripple-black'>
+                        <BarChartOutlined/>
+                            统计 
+                        <CaretDownOutlined className='m-l-5' />
+                    </div>
+                    </Dropdown>
+                    <div className='voteManageList-item-option-item ripple-black'>
+                        <ShareAltOutlined/>
+                            分享 
+                        <CaretDownOutlined className='m-l-5'/>
+                    </div>
+                    <div className='voteManageList-item-option-item ripple-black'>
+                    <ClearOutlined />
+                        清理
+                    <CaretDownOutlined  className='m-l-5'/> </div>
+                </div>
             </Col>
         </Row>
     </div>
@@ -92,7 +125,7 @@ function VoteListContent() {
  */
 function VoteList() {
     return  <div className='page page-voteManageList'>
-        <div className='text_page-title'>管理中心</div>
+        <CBreadcrumb/>
         <VoteListHeader/>
         <VoteListContent/>
     </div>

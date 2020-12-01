@@ -22,7 +22,7 @@ Highcharts.theme = {
 	},
 	title: {
 		style: {
-			color: '#FFF',
+			color: '#FFFFFF',
 			font: '16px Lucida Grande, Lucida Sans Unicode, Verdana, Arial, Helvetica, sans-serif'
 		}
 	},
@@ -74,7 +74,7 @@ Highcharts.theme = {
 			color: '#CCC'
 		},
 		itemHoverStyle: {
-			color: '#FFF'
+			color: '#FFFFFF'
 		},
 		itemHiddenStyle: {
 			color: '#333'
@@ -95,7 +95,7 @@ Highcharts.theme = {
 		},
 		borderWidth: 0,
 		style: {
-			color: '#FFF'
+			color: '#FFFFFF'
 		}
 	},
 
@@ -234,7 +234,7 @@ Highcharts.theme = {
 				]
 			},
 		buttonBorderColor: '#CCC',
-		rifleColor: '#FFF',
+		rifleColor: '#FFFFFF',
 		trackBackgroundColor: {
 			linearGradient: { x1: 0, y1: 0, x2: 0, y2: 1 },
 			stops: [

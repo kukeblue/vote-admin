@@ -46,7 +46,7 @@ table {
 /*module
 */
 body {
-    background-color: #fff;
+    background-color: #FFFFFF;
     font: 12px/1.5 sans-serif, "宋体", "Arial Narrow", HELVETICA;
     color: #646464;
 }
@@ -72,7 +72,7 @@ body {
 .tabhead span.focus {
     height: 31px;
     border-bottom: none;
-    background: #fff;
+    background: #FFFFFF;
 }
 
 .tabbody {

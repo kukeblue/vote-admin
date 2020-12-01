@@ -2,6 +2,7 @@ import { Table, Col, Row } from 'antd'
 import React from 'react'
 import { useHistory } from 'react-router-dom'
 import { colLayout_1, colLayout_2} from '../../config/colLayout'
+import { CBreadcrumb } from '../../component/CBreadcrumb'
 import './index.less'
 /**
  * @type React Component
@@ -18,8 +19,8 @@ function Dashboard() {
     return <Row className='flex-between dashboard'>
         {
         list.map(item=><Col onClick={
-           ()=> history.push('/admin/voteManage/list')
-        } {...colLayout_2} className='m-b-20'>
+           ()=> history.push('/admin/voteManage')
+        } {...colLayout_2} key={item.name} className='m-b-20'>
             <div  className='dashboard-card'>
             <div className='dashboard-card-activityCount'>{item.count}</div>
                 <div className='dashboard-card-activityDec'>{item.name}</div>
@@ -63,7 +64,7 @@ function LatestActivity() {
             title: '操作',
             dataIndex: '操作',
         },
-      ] 
+    ] 
     return <div className='latestActivity'>
         <div className='latestActivity-header flex-between'>
             <div>最新活动</div>
@@ -170,7 +171,7 @@ function Acticle() {
 function Management(props) {
   return (
     <div className='page management-page'>
-        <div className='text_page-title'>管理中心</div>
+        <CBreadcrumb/>
         {/* 各个状态活动快速跳转 */}
         <Dashboard/>
         {/* 最近活动 */}

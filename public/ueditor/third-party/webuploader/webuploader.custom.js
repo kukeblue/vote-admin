@@ -3682,7 +3682,7 @@
                     height: '100%',
                     display: 'block',
                     cursor: 'pointer',
-                    background: '#ffffff'
+                    background: '#FFFFFF'
                 });
     
                 if ( opts.multiple ) {
