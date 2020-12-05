@@ -4,6 +4,6 @@ import image_logo from '../../assets/images/logo.png'
 
 export default function Login() {
     return <div>
-        <img className='logo' src={image_logo}></img>
+        <img alt="" className='logo' src={image_logo}></img>
     </div>
 }

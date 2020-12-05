@@ -4,8 +4,7 @@ import './index.less'
 import Logo from '../../component/Logo/index'
 import image_wechat from '../../assets/images/wechat.png'
 import { createContainer, useContainer } from "unstated-next"
-
-
+import { Link } from 'react-router-dom';
 /**
  * 账号密码登录板块
  */
@@ -32,7 +31,6 @@ function LoginForm() {
       </Form>
     </div>
 }
-
 /**
  * 底部link
  */
@@ -40,14 +38,13 @@ function BottomLink() {
   return <div>
     <div className='flex-center m-t-30'>
       <a className='p-loginLink'>返回首页</a>
-      <a className='p-loginLink'>注册账号</a>
+      <Link to='/user/register'><a className='p-loginLink'>注册账号</a></Link>
     </div>
     <div className='flex-center band'>
     © CopyRight 2013-2020,All Rights Reserved.
     </div>
   </div>
 }
-
 /**
 * 微信扫码登录
 */
@@ -65,7 +62,6 @@ function WechatLogin() {
     </a>
   </div>
 }
-
 /**
  * 登录Page
  */

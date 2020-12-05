@@ -17,7 +17,7 @@ function SwiperUpload() {
             }}
             draggable className='m-r-10'>
             <div className='picture-upload-success flex-column-all-center'>
-                <img className='picture-upload-image' src={banner}/>
+                <img alt="" className='picture-upload-image' src={banner}/>
                 <div className='picture-upload-filter'>
                     <div className='upload-filter-size'>750 × 450</div>
                     <span className='picture-upload-delete iconfont iconshanchu'></span>
@@ -32,7 +32,7 @@ function SwiperUpload() {
             <div onDragStart={()=>{
                 console.log('onDragStart')
             }} draggable className='picture-upload-success flex-column-all-center'>
-                <img className='picture-upload-image' src={banner2}/>
+                <img alt="" className='picture-upload-image' src={banner2}/>
                 <div className='picture-upload-filter'>
                     <div className='upload-filter-size'>750 × 450</div>
                     <span className='picture-upload-delete iconfont iconshanchu'></span>

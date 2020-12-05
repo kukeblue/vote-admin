@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react'
-let ue = null
 
 const myConfig = {
     UEDITOR_HOME_URL: "/ueditor/", // 需要令此处的URL等于对应 ueditor.config.js 中的配置。
@@ -98,7 +97,7 @@ function Ueitor() {
                 23 /* 指定添加到工具栏上的哪个位置，默认时追加到最后 */,
                 'ueitor-container' /* 指定这个 UI 是哪个编辑器实例上的，默认是页面上所有的编辑器都会添加这个按钮 */
             );
-            ue = window.UE.getEditor('ueitor-container', myConfig);
+            window.UE.getEditor('ueitor-container', myConfig);
             window.UE.registerUI(
                 "custom-img",
                 function (editor, uiName) {

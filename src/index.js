@@ -6,7 +6,15 @@ import reportWebVitals from './reportWebVitals';
 import * as serviceWorker from './serviceWorker';
 import { ConfigProvider } from 'antd';
 import zhCN from 'antd/lib/locale/zh_CN';
-
+import { RequestConfig } from './utils/request'
+import qs from 'qs';
+// 配置自定义请求配置项目
+RequestConfig.config.headers = {
+  'content-type': 'application/x-www-form-urlencoded'
+}
+RequestConfig.onRequest = (data) => {
+  return qs.stringify(data)
+}
 
 ReactDOM.render(
   // <React.StrictMode>

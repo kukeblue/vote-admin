@@ -1,6 +1,6 @@
-import React, { useState } from 'react'
+import React from 'react'
 import './index.less'
-import { Input, Select, Menu, Dropdown } from 'antd'
+import { Input, Menu, Dropdown } from 'antd'
 import { DownOutlined } from '@ant-design/icons';
 
 /**

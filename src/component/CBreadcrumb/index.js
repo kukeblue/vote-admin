@@ -5,7 +5,7 @@ import { useHistory, Link } from 'react-router-dom';
 import { PathMap } from '../../App'
 import { ReactIf } from '../ReactIf';
 
-export function CBreadcrumb({}) {
+export function CBreadcrumb() {
     const {location} = useHistory()
 
     const pathSnippets = location.pathname.split('/').filter((i, index )=> {

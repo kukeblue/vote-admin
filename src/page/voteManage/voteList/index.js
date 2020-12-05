@@ -65,7 +65,15 @@ function VoteListContent() {
     const toVoteResultPage = () => {
         history.push('/admin/voteManage/result')
     }
-
+    // 跳转投票统计
+    const toVoteStatisticsPage = () => {
+        history.push('/admin/voteManage/statistics')
+    }
+    // 活动编辑
+    const toVoteEditPage = () => {
+        history.push('/admin/voteManage/edit')
+    }
+    // 手机端跳转
     const clickItemInPhone = () => {
         if(isMobile()) {
             history.push('/admin/voteManage/edit')
@@ -90,11 +98,12 @@ function VoteListContent() {
                 </div>
             </div></Col>
             <Col {...col_layout_option}><div className='voteManageList-item-option'>
-                <div className='voteManageList-item-option-item ripple-black'>
+                <div onClick={toVoteEditPage} className='voteManageList-item-option-item ripple-black'>
                    <FormOutlined/> 活动编辑
                 </div>
                     <Dropdown overlay={
                     <Menu>
+                        <Menu.Item className onClick={toVoteStatisticsPage}>投票统计</Menu.Item>
                         <Menu.Item className onClick={toVoteResultPage}>结果排名</Menu.Item>
                     </Menu>
                     }>

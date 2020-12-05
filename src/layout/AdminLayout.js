@@ -70,9 +70,9 @@ function Nav() {
         })
       }
       {/* <a className="layout-menu-item">专题展示</a> */}
-      <a className="layout-menu-item">财务升级</a>
-      <a className="layout-menu-item">账户信息</a>
-      <a className="layout-menu-item">开放API</a>
+      <a href="/" className="layout-menu-item">财务升级</a>
+      <a href="/" className="layout-menu-item">账户信息</a>
+      <a href="/" className="layout-menu-item">开放API</a>
     </div>
   </div>
 }
@@ -94,9 +94,9 @@ function PhoneNav() {
             return <a className={ history.location.pathname.includes(item.path.split('/')[2]) ? "layout-phoneNav-item_selected" : "layout-phoneNav-item"} key={item.path} href={item.path}>{item.name}</a>
           })
         }
-        <a className='layout-phoneNav-item'>财务升级</a>
-        <a className='layout-phoneNav-item'>账户信息</a>
-        <a className='layout-phoneNav-item'>开放API</a>
+        <a href="/" className='layout-phoneNav-item'>财务升级</a>
+        <a href="/" className='layout-phoneNav-item'>账户信息</a>
+        <a  href="/" className='layout-phoneNav-item'>开放API</a>
       </div>
   </div>
 }
@@ -109,10 +109,10 @@ function LayoutFooter() {
   return <div className='layout-footer flex-center'>
     <div className='layout-footer-content'>
     <div>
-      <a>官网首页</a>   
-      <a>用户协议</a>
-      <a>帮助中心</a>
-      <a>案例参考</a>
+      <a href='/'>官网首页</a>   
+      <a href='/'>用户协议</a>
+      <a href='/'>帮助中心</a>
+      <a href='/'>案例参考</a>
     </div>
     <div className='footer-bank'>© CopyRight 2013-2020,All Rights Reserved.</div>
     </div>

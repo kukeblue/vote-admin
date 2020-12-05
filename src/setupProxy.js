@@ -3,9 +3,11 @@ module.exports = function(app) {
   app.use(
     '/api',
     createProxyMiddleware({
-      target: 'https://paper.lantushiji.cn',
-      // target: 'https://app.dayanjiaoyu.com',
+      target: 'http://uc.yxsjob.com',
       changeOrigin: true,
+      pathRewrite: {
+        '^/api': '',
+      },
     })
   );
 };
